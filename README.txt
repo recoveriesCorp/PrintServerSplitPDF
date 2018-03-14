@@ -1,8 +1,25 @@
+//   Copyright(C) 2018 recoveriesCorp
+//
+//   This program is free software: you can redistribute it and/or modify
+//   it under the terms of the GNU Affero General Public License as
+//   published by the Free Software Foundation, either version 3 of the
+//   License, or(at your option) any later version.
+//
+//  This program is distributed in the hope that it will be useful,
+//   but WITHOUT ANY WARRANTY; without even the implied warranty of
+//   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.See the
+//   GNU Affero General Public License for more details.
+//
+//   You should have received a copy of the GNU Affero General Public License
+//   along with this program. If not, see<http://www.gnu.org/licenses/>.
+
 ****************************
 PrintServer SplitPDF 
 ****************************
 PrintServer SplitPDF  is a utility to split a large multi-document PDF file into many single-document PDF files by searching for the "CODENO[" string as a marker, separating documents.
-This program is utilising iText library, distributed under AGPL.
+This program is utilising:
+- iText library, distributed under AGPL (https://itextpdf.com/AGPL);
+- NLOG library (Copyright (c) 2004-2018 Jaroslaw Kowalski <jaak@jkowalski.net>, Kim Christensen, Julian Verdurmen), distributed under BSD 3-Clause "New" or "Revised" License.
 ****************************
 The program is a C# console app, which is designed to work with 5 command line arguments:
 
@@ -22,22 +39,3 @@ string logFilePath = "C:\Temp\SplitPDFLogs\XYZDOC_D-999999-20180103135603-00001_
 string parameteres = string.Format("\"{0}\" \"{1}\" \"{2}\" \"{3}\" \"{4}\"", pdfFileInPath, supportFilePath, docType, database, logFilePath);
 p = Process.Start(exePath, parameteres);
 ****************************
-
-
-//   Copyright(C) 2018 recoveriesCorp
-//
-//   This program is free software: you can redistribute it and/or modify
-//   it under the terms of the GNU Affero General Public License as
-//   published by the Free Software Foundation, either version 3 of the
-//   License, or(at your option) any later version.
-//
-//  This program is distributed in the hope that it will be useful,
-//   but WITHOUT ANY WARRANTY; without even the implied warranty of
-//   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.See the
-//   GNU Affero General Public License for more details.
-//
-//   You should have received a copy of the GNU Affero General Public License
-//   along with this program. If not, see<http://www.gnu.org/licenses/>.
-
-
-
