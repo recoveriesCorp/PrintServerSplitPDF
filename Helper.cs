@@ -92,7 +92,7 @@ namespace PrintServerSplitPDF
                     }
                 }
 
-                if (!File.Exists(logFilePath))
+                if (logFilePath==null)
                 {
                     int maxWait = 1;
                     DateTime dtStart = DateTime.Now;
@@ -181,15 +181,15 @@ namespace PrintServerSplitPDF
                 int pageNumber = 1;
                 FileInfo file = new FileInfo(pdfFilePath);
                 LogMsg(logFilePath, string.Format("SplitPDFs Marker 07", new object[] { }));
-                
+
                 List<string> linesControl = null;
-                string sep = "\t";                
+                string sep = "\t";
                 string dbCode = null;
                 string dhCode = null;
-                string seqNo = null;                
-                string strDatetime = DateTime.Now.ToString("dd_MM_yy-HH_mm_ss_ffffff");                
-                string fileName = System.IO.Path.GetFileNameWithoutExtension(pdfFilePath);                
-                
+                string seqNo = null;
+                string strDatetime = DateTime.Now.ToString("dd_MM_yy-HH_mm_ss_ffffff");
+                string fileName = System.IO.Path.GetFileNameWithoutExtension(pdfFilePath);
+
                 LogMsg(logFilePath, string.Format("SplitPDFs before starting split loop of: {0} iterations", new object[] { intervals.Count }));
                 for (int i = 0; i < intervals.Count; i++)
                 {
@@ -471,11 +471,11 @@ namespace PrintServerSplitPDF
                     PdfSmartCopy pdf = new PdfSmartCopy(document, stream);
                     LogMsg(logFilePath, string.Format("MergePDFs Marker 04", new object[] { }));
                     //pdf.SetPdfVersion(PdfWriter.PDF_VERSION_1_3);
-                    //pdf.PDFXConformance = PdfWriter.PDFX1A2001; 
+                    //pdf.PDFXConformance = PdfWriter.PDFX1A2001; 
                     using (PdfReader reader = null)
                     {
                         try
-                        {                            
+                        {
                             LogMsg(logFilePath, string.Format("MergePDFs Marker 05", new object[] { }));
                             document.Open();
                             foreach (string file in sourceFiles)
