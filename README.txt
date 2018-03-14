@@ -31,11 +31,11 @@ logFilePath - full path of the external log file to add logs. If the provided lo
 
 C# Use example:
 ****************************
-string pdfFileInPath = "C:\Temp\Printing\XYZDOC_D-999999-20180103135603-00001_00008_00008.pdf";
-string supportFilePath = "C:\Temp\PrintSupport\XYZDOC_D-999999-20180103135603-00001_00008_00008.DAT";
+string pdfFileInPath = @"C:\Temp\Printing\XYZDOC_D-999999-20180103135603-00001_00008_00008.pdf";
+string supportFilePath = @"C:\Temp\PrintSupport\XYZDOC_D-999999-20180103135603-00001_00008_00008.DAT";
 string docType = "LETTER";
 string database = "DB";
-string logFilePath = "C:\Temp\SplitPDFLogs\XYZDOC_D-999999-20180103135603-00001_00008_00008.log";
+string logFilePath = @"C:\Temp\SplitPDFLogs\XYZDOC_D-999999-20180103135603-00001_00008_00008.log";
 string parameteres = string.Format("\"{0}\" \"{1}\" \"{2}\" \"{3}\" \"{4}\"", pdfFileInPath, supportFilePath, docType, database, logFilePath);
 p = Process.Start(exePath, parameteres);
 ****************************
