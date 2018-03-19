@@ -42,18 +42,21 @@ namespace PrintServerSplitPDF
                     supportFilePath = @"";
                     docType = "LETTER";
                     database = "";
-
-                    FileInfo finfo1 = new FileInfo(pdfFileInPath);
-                    string errLog1 = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "SplitPDFLogs");
-                    string timestamp1 = DateTime.UtcNow.ToString("yyyy-MM-dd_HH-mm-ss-fff_", CultureInfo.InvariantCulture);
-                    string fileName1 = timestamp1 + finfo1.Name + ".log";
-                    string logFilePath1 = System.IO.Path.Combine(errLog1, fileName1);
-                    string line = Environment.NewLine;
-                    string msgg = "Received following 5 command string args: " + line;
-                    msgg += pdfFileInPath + line + supportFilePath + line + docType + line + database + line + logFilePath1 + line;
-                    Helper.LogMsg(logFilePath1, msgg);
-                    //Helper.LogInstanceMsg(instanceLog, msgg);
-                    isSplit = Helper.SplitPDFs(pdfFileInPath, supportFilePath, docType, database, logFilePath1);
+                    Helper.LogMsg(null, "Zero Args - test case");
+                    if (File.Exists(pdfFileInPath) && File.Exists(supportFilePath))
+                    {
+                        FileInfo finfo1 = new FileInfo(pdfFileInPath);
+                        string errLog1 = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "SplitPDFLogs");
+                        string timestamp1 = DateTime.UtcNow.ToString("yyyy-MM-dd_HH-mm-ss-fff_", CultureInfo.InvariantCulture);
+                        string fileName1 = timestamp1 + finfo1.Name + ".log";
+                        string logFilePath1 = System.IO.Path.Combine(errLog1, fileName1);
+                        string line = Environment.NewLine;
+                        string msgg = "Received following 5 command string args: " + line;
+                        msgg += pdfFileInPath + line + supportFilePath + line + docType + line + database + line + logFilePath1 + line;
+                        Helper.LogMsg(null, msgg);
+                        //Helper.LogInstanceMsg(instanceLog, msgg);
+                        isSplit = Helper.SplitPDFs(null, supportFilePath, docType, database, logFilePath1);
+                    }
                     break;
                 case 5: // expected use case
                     pdfFileInPath = args[0];
